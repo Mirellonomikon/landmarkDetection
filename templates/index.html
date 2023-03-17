@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Facial Landmark Detection Using OpenCV and dlib</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto mt-5 text-center">
+
+            <h1 class="mb-5">Facial Landmark Detection Using OpenCV and dlib</h1>
+
+            <form method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                {% for error in form.photo.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        {{ form.photo(class="form-control") }}
+                    </div>
+                    <div class="col-auto">
+                        {{ form.submit(class="btn btn-success") }}
+                    </div>
+                </div>
+
+            </form>
+            {% if img_data %}
+                <div class="mt-5">
+                    <img src="data:image/png;base64, {{ img_data }}" alt="Supposed Result" style="width: 720px">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
